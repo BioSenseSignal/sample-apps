@@ -1,0 +1,42 @@
+name: sample_app
+description: BiosenseSignal Sample App.
+publish_to: 'none'
+
+version: 5.13.1
+
+environment:
+  sdk: ">=2.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  biosensesignal_flutter_sdk:
+    hosted:
+      name: biosensesignal_flutter_sdk
+      url: https://biosensesignal.jfrog.io/artifactory/api/pub/biosensesignal_flutter_sdk
+    version: ^5.13.1
+
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^1.1.2
+  permission_handler: ^11.0.1
+  focus_detector: ^2.0.1
+  wakelock_plus: ^1.2.8
+  provider: ^6.0.1
+  fluttertoast: ^8.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+dependency_overrides:
+  wakelock_windows: any
+  win32: any
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/

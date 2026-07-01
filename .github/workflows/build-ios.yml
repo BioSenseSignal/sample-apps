@@ -1,0 +1,43 @@
+name: Build iOS
+
+on:
+  pull_request:
+    paths:
+      - 'ios/**'
+
+jobs:
+  ios:
+    name: iOS
+    runs-on: macos-latest
+    env:
+      JFROG_URL: ${{ vars.JFROG_URL }}
+      JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
+      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+      JFROG_IOS_COCOAPODS_REPOSITORY: ${{ vars.JFROG_IOS_COCOAPODS_REPOSITORY }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install cocoapods-art and configure auth
+        run: |
+          gem install cocoapods-art --no-document
+          printf "machine %s\n  login %s\n  password %s\n" \
+            "$(echo "$JFROG_URL" | sed 's|https://||')" \
+            "$JFROG_USERNAME" "$JFROG_API_KEY" >> ~/.netrc
+          chmod 600 ~/.netrc
+      - name: Pod install
+        run: |
+          cd ios
+          POD_REPO_URL="$JFROG_URL/artifactory/api/pods/$JFROG_IOS_COCOAPODS_REPOSITORY"
+          pod repo-art add biosensesignal-cocoapods "$POD_REPO_URL" || \
+            pod repo-art update biosensesignal-cocoapods
+          pod install
+      - name: Build
+        run: |
+          cd ios
+          xcodebuild archive \
+            -allowProvisioningUpdates \
+            -workspace SampleApp.xcworkspace \
+            -scheme SampleApp \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath SampleApp.xcarchive \
+            DEVELOPMENT_TEAM=${{ secrets.APPLE_TEAM_ID }}

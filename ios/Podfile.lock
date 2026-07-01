@@ -1,0 +1,16 @@
+PODS:
+  - BiosenseSignal (5.13.1)
+
+DEPENDENCIES:
+  - BiosenseSignal (~> 5.13.1)
+
+SPEC REPOS:
+  https://biosensesignal.jfrog.io/artifactory/api/pods/biosensesignal-ios-cocoapods:
+    - BiosenseSignal
+
+SPEC CHECKSUMS:
+  BiosenseSignal: bfa9e549bcb68e9335fa4afb6ee6f5a660f02a59
+
+PODFILE CHECKSUM: fa21037c14b6e371e359c7ba9ee5ba18101d49e7
+
+COCOAPODS: 1.16.2

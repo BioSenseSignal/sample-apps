@@ -1,0 +1,7 @@
+plugin 'cocoapods-art', :sources => ['biosensesignal-cocoapods']
+
+platform :ios, '15.1'
+
+target 'SampleApp' do
+  pod 'BiosenseSignal', '~> 5.13.1'
+end

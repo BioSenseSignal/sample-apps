@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url "https://biosensesignal.jfrog.io/artifactory/android-sdk"
+            credentials {
+                username = "<JFROG_USERNAME>"
+                password = "<JFROG_API_KEY>"
+            }
+        }
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Android Sample"
+include ':app'

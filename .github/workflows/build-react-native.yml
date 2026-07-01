@@ -1,0 +1,46 @@
+name: Build React Native
+
+on:
+  pull_request:
+    paths:
+      - 'react-native/**'
+
+jobs:
+  react-native-android:
+    name: React Native Android
+    runs-on: ubuntu-latest
+    env:
+      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: cd react-native/SampleApp && yarn install
+      - name: Build
+        run: cd react-native/SampleApp/android && ./gradlew assembleRelease
+
+  react-native-ios:
+    name: React Native iOS
+    runs-on: macos-latest
+    env:
+      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: cd react-native/SampleApp && yarn install
+      - name: Build
+        run: |
+          cd react-native/SampleApp/ios
+          xcodebuild archive \
+            -allowProvisioningUpdates \
+            -workspace SampleApp.xcworkspace \
+            -scheme SampleApp \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath SampleApp.xcarchive \
+            DEVELOPMENT_TEAM=${{ secrets.APPLE_TEAM_ID }}

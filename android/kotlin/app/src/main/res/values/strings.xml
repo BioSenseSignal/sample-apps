@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BiosenseSignal Sample</string>
+    <string name="start">START</string>
+    <string name="stop">STOP</string>
+    <string name="image_validity">Image Validity</string>
+    <string name="you_are_too_far">You are Too Far</string>
+    <string name="uneven_lightning">Uneven Lighting</string>
+    <string name="tilted_head">Titled Head</string>
+    <string name="face_not_detected">Face Not Detected</string>
+    <string name="invalid_orientation">Invalid Orientation</string>
+    <string name="face_not_centered">Face Not Centered</string>
+    <string name="device_not_aligned">Device Not Aligned</string>
+</resources>

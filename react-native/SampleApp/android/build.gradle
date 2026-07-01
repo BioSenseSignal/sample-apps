@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        buildToolsVersion = "36.0.0"
+        minSdkVersion = 27
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+
+        // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
+        ndkVersion = "27.1.12297006"
+        kotlinVersion = "2.0.21"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    }
+}
+
+subprojects { subproject ->
+    if (subproject.path == ":biosensesignal-react-native-sdk:biosensesignal-sdk") {
+        subproject.ext.set("newArchEnabled", "true")
+        subproject.ext.set("react.newArchEnabled", "true")
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
