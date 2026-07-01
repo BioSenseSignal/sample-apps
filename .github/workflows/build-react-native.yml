@@ -10,7 +10,7 @@ jobs:
     name: React Native Android
     runs-on: ubuntu-latest
     env:
-      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -25,7 +25,7 @@ jobs:
     name: React Native iOS
     runs-on: macos-latest
     env:
-      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5

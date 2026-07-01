@@ -10,23 +10,23 @@ jobs:
     name: iOS
     runs-on: macos-latest
     env:
-      JFROG_URL: ${{ vars.JFROG_URL }}
-      JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
-      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
-      JFROG_IOS_COCOAPODS_REPOSITORY: ${{ vars.JFROG_IOS_COCOAPODS_REPOSITORY }}
+      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
+      ARTIFACTORY_IOS_COCOAPODS_REPOSITORY: ${{ vars.ARTIFACTORY_IOS_COCOAPODS_REPOSITORY }}
     steps:
       - uses: actions/checkout@v5
       - name: Install cocoapods-art and configure auth
         run: |
           gem install cocoapods-art --no-document
           printf "machine %s\n  login %s\n  password %s\n" \
-            "$(echo "$JFROG_URL" | sed 's|https://||')" \
-            "$JFROG_USERNAME" "$JFROG_API_KEY" >> ~/.netrc
+            "$(echo "$ARTIFACTORY_URL" | sed 's|https://||')" \
+            "$ARTIFACTORY_USERNAME" "$ARTIFACTORY_API_KEY" >> ~/.netrc
           chmod 600 ~/.netrc
       - name: Pod install
         run: |
           cd ios
-          POD_REPO_URL="$JFROG_URL/artifactory/api/pods/$JFROG_IOS_COCOAPODS_REPOSITORY"
+          POD_REPO_URL="$ARTIFACTORY_URL/artifactory/api/pods/$ARTIFACTORY_IOS_COCOAPODS_REPOSITORY"
           pod repo-art add biosensesignal-cocoapods "$POD_REPO_URL" || \
             pod repo-art update biosensesignal-cocoapods
           pod install

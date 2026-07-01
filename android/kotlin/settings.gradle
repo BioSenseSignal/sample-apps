@@ -11,8 +11,8 @@ dependencyResolutionManagement {
         maven {
             url "https://biosensesignal.jfrog.io/artifactory/android-sdk"
             credentials {
-                username = "<JFROG_USERNAME>"
-                password = "<JFROG_API_KEY>"
+                username = "<ARTIFACTORY_USERNAME>"
+                password = "<ARTIFACTORY_API_KEY>"
             }
         }
         google()

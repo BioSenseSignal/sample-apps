@@ -10,9 +10,9 @@ jobs:
     name: Flutter Android
     runs-on: ubuntu-latest
     env:
-      JFROG_URL: ${{ vars.JFROG_URL }}
-      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
-      JFROG_FLUTTER_REPOSITORY: ${{ vars.JFROG_FLUTTER_REPOSITORY }}
+      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
+      ARTIFACTORY_FLUTTER_REPOSITORY: ${{ vars.ARTIFACTORY_FLUTTER_REPOSITORY }}
     steps:
       - uses: actions/checkout@v5
       - uses: subosito/flutter-action@v2
@@ -21,8 +21,8 @@ jobs:
       - name: Authenticate with JFrog
         run: |
           dart pub token add \
-            "$JFROG_URL/artifactory/api/pub/$JFROG_FLUTTER_REPOSITORY" \
-            --env-var JFROG_API_KEY
+            "$ARTIFACTORY_URL/artifactory/api/pub/$ARTIFACTORY_FLUTTER_REPOSITORY" \
+            --env-var ARTIFACTORY_API_KEY
       - name: Build APK
         run: cd flutter/sample_app && flutter build apk
 
@@ -30,9 +30,9 @@ jobs:
     name: Flutter iOS
     runs-on: macos-latest
     env:
-      JFROG_URL: ${{ vars.JFROG_URL }}
-      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
-      JFROG_FLUTTER_REPOSITORY: ${{ vars.JFROG_FLUTTER_REPOSITORY }}
+      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
+      ARTIFACTORY_FLUTTER_REPOSITORY: ${{ vars.ARTIFACTORY_FLUTTER_REPOSITORY }}
     steps:
       - uses: actions/checkout@v5
       - uses: subosito/flutter-action@v2
@@ -41,8 +41,8 @@ jobs:
       - name: Authenticate with JFrog
         run: |
           dart pub token add \
-            "$JFROG_URL/artifactory/api/pub/$JFROG_FLUTTER_REPOSITORY" \
-            --env-var JFROG_API_KEY
+            "$ARTIFACTORY_URL/artifactory/api/pub/$ARTIFACTORY_FLUTTER_REPOSITORY" \
+            --env-var ARTIFACTORY_API_KEY
       - name: Build IPA
         run: |
           cd flutter/sample_app

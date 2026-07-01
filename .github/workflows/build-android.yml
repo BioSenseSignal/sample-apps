@@ -10,15 +10,15 @@ jobs:
     name: Android Kotlin
     runs-on: ubuntu-latest
     env:
-      JFROG_URL: ${{ vars.JFROG_URL }}
-      JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
-      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - name: Inject JFrog credentials
         run: |
-          perl -i -pe 's|username = ".*"|username = "$ENV{JFROG_USERNAME}"|g;
-                        s|password = ".*"|password = "$ENV{JFROG_API_KEY}"|g' \
+          perl -i -pe 's|username = ".*"|username = "$ENV{ARTIFACTORY_USERNAME}"|g;
+                        s|password = ".*"|password = "$ENV{ARTIFACTORY_API_KEY}"|g' \
             android/kotlin/settings.gradle
       - name: Build
         run: cd android/kotlin && ./gradlew assembleRelease
@@ -27,15 +27,15 @@ jobs:
     name: Android Java
     runs-on: ubuntu-latest
     env:
-      JFROG_URL: ${{ vars.JFROG_URL }}
-      JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
-      JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - name: Inject JFrog credentials
         run: |
-          perl -i -pe 's|username = ".*"|username = "$ENV{JFROG_USERNAME}"|g;
-                        s|password = ".*"|password = "$ENV{JFROG_API_KEY}"|g' \
+          perl -i -pe 's|username = ".*"|username = "$ENV{ARTIFACTORY_USERNAME}"|g;
+                        s|password = ".*"|password = "$ENV{ARTIFACTORY_API_KEY}"|g' \
             android/java/settings.gradle
       - name: Build
         run: cd android/java && ./gradlew assembleRelease
