@@ -14,7 +14,6 @@ jobs:
     name: Android Kotlin
     runs-on: ubuntu-latest
     env:
-      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
       ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
@@ -31,7 +30,6 @@ jobs:
     name: Android Java
     runs-on: ubuntu-latest
     env:
-      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
       ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:

@@ -14,7 +14,6 @@ jobs:
     name: iOS
     runs-on: macos-latest
     env:
-      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
       ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
       ARTIFACTORY_IOS_COCOAPODS_REPOSITORY: ${{ vars.ARTIFACTORY_IOS_COCOAPODS_REPOSITORY }}
@@ -23,14 +22,13 @@ jobs:
       - name: Install cocoapods-art and configure auth
         run: |
           gem install cocoapods-art --no-document
-          printf "machine %s\n  login %s\n  password %s\n" \
-            "$(echo "$ARTIFACTORY_URL" | sed 's|https://||')" \
+          printf "machine biosensesignal.jfrog.io\n  login %s\n  password %s\n" \
             "$ARTIFACTORY_USERNAME" "$ARTIFACTORY_API_KEY" >> ~/.netrc
           chmod 600 ~/.netrc
       - name: Pod install
         run: |
           cd ios
-          POD_REPO_URL="$ARTIFACTORY_URL/artifactory/api/pods/$ARTIFACTORY_IOS_COCOAPODS_REPOSITORY"
+          POD_REPO_URL="https://biosensesignal.jfrog.io/artifactory/api/pods/$ARTIFACTORY_IOS_COCOAPODS_REPOSITORY"
           pod repo-art add biosensesignal-cocoapods "$POD_REPO_URL" || \
             pod repo-art update biosensesignal-cocoapods
           pod install

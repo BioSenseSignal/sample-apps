@@ -14,7 +14,6 @@ jobs:
     name: Flutter Android
     runs-on: ubuntu-latest
     env:
-      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
       ARTIFACTORY_FLUTTER_REPOSITORY: ${{ vars.ARTIFACTORY_FLUTTER_REPOSITORY }}
     steps:
@@ -25,7 +24,7 @@ jobs:
       - name: Authenticate with JFrog
         run: |
           dart pub token add \
-            "$ARTIFACTORY_URL/artifactory/api/pub/$ARTIFACTORY_FLUTTER_REPOSITORY" \
+            "https://biosensesignal.jfrog.io/artifactory/api/pub/$ARTIFACTORY_FLUTTER_REPOSITORY" \
             --env-var ARTIFACTORY_API_KEY
       - name: Build APK
         run: cd flutter && flutter build apk
@@ -34,7 +33,6 @@ jobs:
     name: Flutter iOS
     runs-on: macos-latest
     env:
-      ARTIFACTORY_URL: ${{ vars.ARTIFACTORY_URL }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
       ARTIFACTORY_FLUTTER_REPOSITORY: ${{ vars.ARTIFACTORY_FLUTTER_REPOSITORY }}
     steps:
@@ -45,7 +43,7 @@ jobs:
       - name: Authenticate with JFrog
         run: |
           dart pub token add \
-            "$ARTIFACTORY_URL/artifactory/api/pub/$ARTIFACTORY_FLUTTER_REPOSITORY" \
+            "https://biosensesignal.jfrog.io/artifactory/api/pub/$ARTIFACTORY_FLUTTER_REPOSITORY" \
             --env-var ARTIFACTORY_API_KEY
       - name: Build IPA
         run: |
