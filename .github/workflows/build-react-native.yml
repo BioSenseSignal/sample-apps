@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies
-        run: cd react-native/SampleApp && yarn install
+        run: cd react-native && yarn install
       - name: Build
-        run: cd react-native/SampleApp/android && ./gradlew assembleRelease
+        run: cd react-native/android && ./gradlew assembleRelease
 
   react-native-ios:
     name: React Native iOS
@@ -32,10 +32,10 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies
-        run: cd react-native/SampleApp && yarn install
+        run: cd react-native && yarn install
       - name: Build
         run: |
-          cd react-native/SampleApp/ios
+          cd react-native/ios
           xcodebuild archive \
             -allowProvisioningUpdates \
             -workspace SampleApp.xcworkspace \

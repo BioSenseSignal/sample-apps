@@ -24,7 +24,7 @@ jobs:
             "$ARTIFACTORY_URL/artifactory/api/pub/$ARTIFACTORY_FLUTTER_REPOSITORY" \
             --env-var ARTIFACTORY_API_KEY
       - name: Build APK
-        run: cd flutter/sample_app && flutter build apk
+        run: cd flutter && flutter build apk
 
   flutter-ios:
     name: Flutter iOS
@@ -45,7 +45,7 @@ jobs:
             --env-var ARTIFACTORY_API_KEY
       - name: Build IPA
         run: |
-          cd flutter/sample_app
+          cd flutter
           flutter build ipa \
             --export-options-plist=/dev/null \
             --build-name=1.0.0 \

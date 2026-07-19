@@ -11,8 +11,8 @@ The SDK enables contactless measurement of vital signs (heart rate, respiration 
 | Android (Kotlin) | [`android/kotlin`](android/kotlin/README.md) |
 | Android (Java) | [`android/java`](android/java/README.md) |
 | iOS (Swift) | [`ios`](ios/README.md) |
-| Flutter | [`flutter/sample_app`](flutter/sample_app/README.md) |
-| React Native | [`react-native/SampleApp`](react-native/SampleApp/README.md) |
+| Flutter | [`flutter`](flutter/README.md) |
+| React Native | [`react-native`](react-native/README.md) |
 
 ## SDK Access
 
