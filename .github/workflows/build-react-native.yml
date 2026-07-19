@@ -37,6 +37,11 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: cd react-native && yarn install
+      - name: Pod install
+        run: |
+          mkdir -p ~/.cocoapods/repos
+          cd react-native/ios
+          pod install
       - name: Build
         run: |
           cd react-native/ios
