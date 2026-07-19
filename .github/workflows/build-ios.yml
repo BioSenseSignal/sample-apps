@@ -16,7 +16,6 @@ jobs:
     env:
       ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
-      ARTIFACTORY_IOS_COCOAPODS_REPOSITORY: ${{ vars.ARTIFACTORY_IOS_COCOAPODS_REPOSITORY }}
     steps:
       - uses: actions/checkout@v5
       - name: Install cocoapods-art and configure auth
@@ -28,7 +27,7 @@ jobs:
       - name: Pod install
         run: |
           cd ios
-          POD_REPO_URL="https://biosensesignal.jfrog.io/artifactory/api/pods/$ARTIFACTORY_IOS_COCOAPODS_REPOSITORY"
+          POD_REPO_URL="https://biosensesignal.jfrog.io/artifactory/api/pods/biosensesignal-ios-cocoapods"
           pod repo-art add biosensesignal-cocoapods "$POD_REPO_URL" || \
             pod repo-art update biosensesignal-cocoapods
           pod install
