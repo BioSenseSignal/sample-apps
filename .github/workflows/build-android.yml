@@ -5,9 +5,11 @@ on:
     branches: [main]
     paths:
       - 'android/**'
+      - '.github/workflows/build-android.yml'
   pull_request:
     paths:
       - 'android/**'
+      - '.github/workflows/build-android.yml'
 
 jobs:
   android-kotlin:

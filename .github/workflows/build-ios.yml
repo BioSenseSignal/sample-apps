@@ -5,9 +5,11 @@ on:
     branches: [main]
     paths:
       - 'ios/**'
+      - '.github/workflows/build-ios.yml'
   pull_request:
     paths:
       - 'ios/**'
+      - '.github/workflows/build-ios.yml'
 
 jobs:
   ios:

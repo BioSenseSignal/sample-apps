@@ -5,9 +5,11 @@ on:
     branches: [main]
     paths:
       - 'react-native/**'
+      - '.github/workflows/build-react-native.yml'
   pull_request:
     paths:
       - 'react-native/**'
+      - '.github/workflows/build-react-native.yml'
 
 jobs:
   react-native-android:

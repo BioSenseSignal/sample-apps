@@ -5,9 +5,11 @@ on:
     branches: [main]
     paths:
       - 'flutter/**'
+      - '.github/workflows/build-flutter.yml'
   pull_request:
     paths:
       - 'flutter/**'
+      - '.github/workflows/build-flutter.yml'
 
 jobs:
   flutter-android:
