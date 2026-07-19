@@ -26,6 +26,7 @@ jobs:
           chmod 600 ~/.netrc
       - name: Pod install
         run: |
+          mkdir -p ~/.cocoapods/repos
           cd ios
           POD_REPO_URL="https://biosensesignal.jfrog.io/artifactory/api/pods/biosensesignal-ios-cocoapods"
           pod repo-art add biosensesignal-cocoapods "$POD_REPO_URL" || \
