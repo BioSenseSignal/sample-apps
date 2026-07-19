@@ -1,6 +1,10 @@
 name: Build iOS
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'ios/**'
   pull_request:
     paths:
       - 'ios/**'

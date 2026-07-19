@@ -1,6 +1,10 @@
 name: Build Android
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'android/**'
   pull_request:
     paths:
       - 'android/**'

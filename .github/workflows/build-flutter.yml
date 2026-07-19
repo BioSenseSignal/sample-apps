@@ -1,6 +1,10 @@
 name: Build Flutter
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'flutter/**'
   pull_request:
     paths:
       - 'flutter/**'

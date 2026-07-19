@@ -1,6 +1,10 @@
 name: Build React Native
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'react-native/**'
   pull_request:
     paths:
       - 'react-native/**'
