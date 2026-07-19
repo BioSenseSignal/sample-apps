@@ -47,6 +47,5 @@ jobs:
         run: |
           cd flutter
           flutter build ipa \
-            --export-options-plist=/dev/null \
             --build-name=1.0.0 \
             --no-codesign
