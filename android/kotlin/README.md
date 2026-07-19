@@ -53,3 +53,4 @@ Or build from the command line:
 
 - The app requires a physical device with a camera for vital signs measurement. The camera feed cannot be simulated in an emulator.
 - Minimum SDK: API 27 (Android 8.1)
+

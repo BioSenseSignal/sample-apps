@@ -53,3 +53,4 @@ open ios/SampleApp.xcworkspace
 - The app requires a physical iOS device with a camera. The SDK cannot use the simulator camera.
 - Minimum deployment target: iOS 15.1
 - You will need to set your own Apple Developer Team in Xcode under **Signing & Capabilities** before running on a device.
+

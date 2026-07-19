@@ -60,3 +60,4 @@ flutter run -d ios
 - The app requires a physical device with a camera. Vital signs measurement does not work in simulators or emulators.
 - Android minimum SDK: API 27
 - iOS minimum deployment target: iOS 14.0
+

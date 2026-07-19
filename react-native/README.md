@@ -67,3 +67,4 @@ Or open `ios/SampleApp.xcworkspace` in Xcode / `android` in Android Studio and r
 - Android minimum SDK: API 27
 - iOS minimum deployment target: iOS 14.0
 - You will need to set your own Apple Developer Team in Xcode under **Signing & Capabilities** before running on an iOS device.
+
