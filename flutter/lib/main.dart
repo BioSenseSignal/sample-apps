@@ -70,10 +70,10 @@ class MeasurementScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.only(bottom: 20),
-              child: Column(
+              child: const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     _ImageValidity(),
                     SizedBox(
                       height: 30,
@@ -91,6 +91,7 @@ class MeasurementScreen extends StatelessWidget {
 
   void showAlert(BuildContext context, String? title, String message) {
     Future.delayed(Duration.zero, () {
+      if (context.mounted) {
       showDialog(
         context: context,
         builder: (BuildContext context) => AlertDialog(
@@ -101,9 +102,10 @@ class MeasurementScreen extends StatelessWidget {
               onPressed: () => Navigator.pop(context, 'OK'),
               child: const Text('OK'),
             ),
-          ],
-        ),
-      );
+            ],
+          ),
+        );
+      }
     });
   }
 }
