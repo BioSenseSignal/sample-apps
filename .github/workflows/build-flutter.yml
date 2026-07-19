@@ -14,7 +14,7 @@ on:
 jobs:
   flutter-android:
     name: Flutter Android
-    runs-on: ubuntu-latest
+    runs-on: runner-container
     env:
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
@@ -32,7 +32,7 @@ jobs:
 
   flutter-ios:
     name: Flutter iOS
-    runs-on: macos-latest
+    runs-on: binahai-compadre
     env:
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
