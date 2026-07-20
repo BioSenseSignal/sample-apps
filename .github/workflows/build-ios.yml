@@ -14,7 +14,7 @@ on:
 jobs:
   ios:
     name: iOS
-    runs-on: binahai-compadre
+    runs-on: macos-latest
     env:
       ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}

@@ -14,7 +14,7 @@ on:
 jobs:
   android-kotlin:
     name: Android Kotlin
-    runs-on: runner-container
+    runs-on: ubuntu-latest
     env:
       ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
@@ -30,7 +30,7 @@ jobs:
 
   android-java:
     name: Android Java
-    runs-on: runner-container
+    runs-on: ubuntu-latest
     env:
       ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
