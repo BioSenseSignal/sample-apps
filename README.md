@@ -1,6 +1,6 @@
 # BiosenseSignal SDK — Sample Apps
 
-This repository contains sample applications demonstrating how to integrate and use the [BiosenseSignal SDK](https://biosensesignal.com) across multiple mobile platforms.
+This repository contains sample applications demonstrating how to integrate and use the BiosenseSignal SDK across multiple mobile platforms.
 
 The SDK enables contactless measurement of vital signs (heart rate, respiration rate, oxygen saturation, and more) using the device camera.
 
@@ -20,7 +20,6 @@ The BiosenseSignal SDK is distributed via a private Artifactory registry. To bui
 
 | Credential | Description |
 |------------|-------------|
-| `ARTIFACTORY_URL` | Your Artifactory instance base URL (e.g. `https://yourcompany.jfrog.io`) |
 | `ARTIFACTORY_USERNAME` | Your Artifactory username |
 | `ARTIFACTORY_API_KEY` | Your Artifactory API key or identity token |
 
