@@ -2,7 +2,8 @@
 *.bak
 !.*ignore*
 !.*github*
-!react-native/SampleApp/.npmrc
+!react-native/.npmrc
+!web/.npmrc
 .github_step_summary
 
 *.log
