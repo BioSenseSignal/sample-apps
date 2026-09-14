@@ -1,0 +1,28 @@
+name: Build Web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - '.github/workflows/build-web.yml'
+  pull_request:
+    paths:
+      - 'web/**'
+      - '.github/workflows/build-web.yml'
+
+jobs:
+  web:
+    name: Web
+    runs-on: ubuntu-latest
+    env:
+      ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: cd web && yarn install
+      - name: Build
+        run: cd web && yarn build

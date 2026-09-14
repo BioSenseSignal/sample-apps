@@ -1,6 +1,6 @@
 # BiosenseSignal SDK — Sample Apps
 
-This repository contains sample applications demonstrating how to integrate and use the BiosenseSignal SDK across multiple mobile platforms.
+This repository contains sample applications demonstrating how to integrate and use the BiosenseSignal SDK across multiple platforms.
 
 The SDK enables contactless measurement of vital signs (heart rate, respiration rate, oxygen saturation, and more) using the device camera.
 
@@ -13,6 +13,7 @@ The SDK enables contactless measurement of vital signs (heart rate, respiration 
 | iOS (Swift) | [`ios`](ios/README.md) |
 | Flutter | [`flutter`](flutter/README.md) |
 | React Native | [`react-native`](react-native/README.md) |
+| Web | [`web`](web/README.md) |
 
 ## SDK Access
 
