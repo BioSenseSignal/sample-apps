@@ -3,5 +3,5 @@ plugin 'cocoapods-art', :sources => ['biosensesignal-cocoapods']
 platform :ios, '15.1'
 
 target 'SampleApp' do
-  pod 'BiosenseSignal', '~> 5.13.1'
+  pod 'BiosenseSignal', '~> 5.14.1'
 end
