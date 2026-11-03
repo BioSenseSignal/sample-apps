@@ -22,6 +22,18 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        maven {
+            url "https://biosensesignal.jfrog.io/artifactory/android-sdk"
+            credentials {
+                username = "<ARTIFACTORY_USERNAME>"
+                password = "<ARTIFACTORY_API_KEY>"
+            }
+        }
+    }
+}
+
 subprojects { subproject ->
     if (subproject.path == ":biosensesignal-react-native-sdk:biosensesignal-sdk") {
         subproject.ext.set("newArchEnabled", "true")
