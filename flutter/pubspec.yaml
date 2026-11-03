@@ -15,7 +15,7 @@ dependencies:
     hosted:
       name: biosensesignal_flutter_sdk
       url: https://biosensesignal.jfrog.io/artifactory/api/pub/biosensesignal_flutter_sdk
-    version: ^5.13.1
+    version: ^5.14.1
 
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.1.2
