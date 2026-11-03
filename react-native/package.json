@@ -14,7 +14,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.1.18",
-    "biosensesignal-react-native-sdk": "5.13.1",
+    "biosensesignal-react-native-sdk": "5.14.1",
     "react": "19.2.3",
     "react-native": "0.85.3",
     "react-native-keep-awake": "^4.0.0",
