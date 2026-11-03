@@ -16,6 +16,7 @@ jobs:
     name: Flutter Android
     runs-on: ubuntu-latest
     env:
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
@@ -34,6 +35,7 @@ jobs:
     name: Flutter iOS
     runs-on: macos-latest
     env:
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
@@ -45,6 +47,15 @@ jobs:
           dart pub token add \
             "https://biosensesignal.jfrog.io/artifactory/api/pub/biosensesignal_flutter_sdk" \
             --env-var ARTIFACTORY_API_KEY
+      - name: Install cocoapods-art and configure auth
+        run: |
+          gem install cocoapods-art --no-document
+          printf "machine biosensesignal.jfrog.io\n  login %s\n  password %s\n" \
+            "$ARTIFACTORY_USERNAME" "$ARTIFACTORY_API_KEY" >> ~/.netrc
+          chmod 600 ~/.netrc
+          mkdir -p ~/.cocoapods/repos
+          pod repo-art add biosensesignal-cocoapods \
+            "https://biosensesignal.jfrog.io/artifactory/api/pods/biosensesignal-ios-cocoapods"
       - name: Build IPA
         run: |
           cd flutter

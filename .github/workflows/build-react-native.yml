@@ -16,6 +16,7 @@ jobs:
     name: React Native Android
     runs-on: ubuntu-latest
     env:
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
@@ -24,6 +25,11 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: cd react-native && yarn install
+      - name: Inject JFrog credentials
+        run: |
+          perl -i -pe 's|username = ".*"|username = "$ENV{ARTIFACTORY_USERNAME}"|g;
+                        s|password = ".*"|password = "$ENV{ARTIFACTORY_API_KEY}"|g' \
+            react-native/android/build.gradle
       - name: Build
         run: cd react-native/android && ./gradlew assembleRelease
 
@@ -31,6 +37,7 @@ jobs:
     name: React Native iOS
     runs-on: macos-latest
     env:
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
       ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
@@ -39,9 +46,17 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: cd react-native && yarn install
+      - name: Install cocoapods-art and configure auth
+        run: |
+          gem install cocoapods-art --no-document
+          printf "machine biosensesignal.jfrog.io\n  login %s\n  password %s\n" \
+            "$ARTIFACTORY_USERNAME" "$ARTIFACTORY_API_KEY" >> ~/.netrc
+          chmod 600 ~/.netrc
+          mkdir -p ~/.cocoapods/repos
+          pod repo-art add biosensesignal-cocoapods \
+            "https://biosensesignal.jfrog.io/artifactory/api/pods/biosensesignal-ios-cocoapods"
       - name: Pod install
         run: |
-          mkdir -p ~/.cocoapods/repos
           cd react-native/ios
           pod install
       - name: Build

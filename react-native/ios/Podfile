@@ -1,3 +1,5 @@
+source 'https://cdn.cocoapods.org/'
+plugin 'cocoapods-art', :sources => ['biosensesignal-cocoapods']
 
 def node_require(script)
   # Resolve scripts with node to allow for hoisting.
