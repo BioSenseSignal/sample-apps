@@ -1,6 +1,6 @@
 {
   "name": "@biosensesignal/sample-app",
-  "version": "5.13.1",
+  "version": "1.0.0",
   "build": "1",
   "private": true,
   "license": "UNLICENSED",
@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "dependencies": {
-    "@biosensesignal/web-sdk": "5.13.1",
+    "@biosensesignal/web-sdk": "5.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-media-hook": "^0.4.9",
