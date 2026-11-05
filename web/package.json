@@ -1,6 +1,6 @@
 {
   "name": "@biosensesignal/sample-app",
-  "version": "5.13.1",
+  "version": "1.0.0",
   "build": "1",
   "private": true,
   "license": "UNLICENSED",
@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "dependencies": {
-    "@biosensesignal/web-sdk": "5.13.1",
+    "@biosensesignal/web-sdk": "5.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-media-hook": "^0.4.9",
@@ -27,7 +27,7 @@
     "cross-env": "^7.0.2",
     "crypto-browserify": "^3.12.0",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^4.5.0",
+    "html-webpack-plugin": "^5.0.0",
     "path-browserify": "^1.0.1",
     "rimraf": "^3.0.2",
     "ts-loader": "^8.0.7",
