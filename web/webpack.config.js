@@ -101,6 +101,7 @@ function development() {
       port: 8000,
       https: true,
       host: '0.0.0.0',
+      useLocalIp: true,
       headers: {
         'Cross-Origin-Opener-Policy': 'same-origin',
         'Cross-Origin-Embedder-Policy': 'require-corp',
