@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "dependencies": {
-    "@biosensesignal/web-sdk": "5.14.1",
+    "@biosensesignal/web-sdk": "5.14.1-beta.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-media-hook": "^0.4.9",
