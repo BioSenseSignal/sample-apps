@@ -90,16 +90,14 @@ const Stats = ({ vitalSigns }: IStats) => {
               : 'N/A'
           }
         />
-        {isMobile() && (
-          <StatsBox
-            title={'BP'}
-            value={
-              vitalSigns.bloodPressure.isEnabled
-                ? bloodPressureToDisplay
-                : 'N/A'
-            }
-          />
-        )}
+        <StatsBox
+          title={'BP'}
+          value={
+            vitalSigns.bloodPressure.isEnabled
+              ? bloodPressureToDisplay
+              : 'N/A'
+          }
+        />
       </BoxesWrapper>
     </Wrapper>
   );
